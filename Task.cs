@@ -8,7 +8,23 @@ namespace lab290621
 {
     class Task
     {
-        public int[] GetMergeArray(int[] arrOne, int[] arrTwo) => arrOne.Union(arrTwo).ToArray();
+        public int[] GetMergeArray(int[] arrOne, int[] arrTwo)
+        {
+            var temp = new List<int>(arrOne.ToList());
+            var tmp = new List<int>(arrTwo.ToList());
+            foreach (var i in tmp)
+            { 
+                if(temp.Contains(i))
+                {
+                    temp.Remove(i);
+                }
+                else
+                {
+                    temp.Add(i);
+                }
+            }
+            return temp.ToArray();
+        }
 
         public int GetSum(int[] arr) 
         {
@@ -26,7 +42,7 @@ namespace lab290621
             {
                 for (int j = 0+i; j < arr.Length; j++)
                 {
-                    if (j>i && arr[i] - arr[j] == 0 || arr[i] + arr[j] == 0) 
+                    if (j>i && (arr[i] - arr[j]) == 0 || (arr[i] + arr[j]) == 0)
                     {
                         count++;
                     }
