@@ -38,16 +38,20 @@ namespace lab290621
         public int GetCount(int[] arr)
         {
             int count = 0;
-            for(int i = 0; i<arr.Length; i++)
+            
+            int last = 0;
+            for (int i = 0; i < arr.Length; i++)
             {
-                for (int j = 0+i; j < arr.Length; j++)
+                if (i + 1 > i && arr[i] != 0)
                 {
-                    if (j>i && (arr[i] - arr[j]) == 0 || (arr[i] + arr[j]) == 0)
+                    if ((arr[i] - arr[last]) == 0 || (arr[i] + arr[last]) == 0)
                     {
                         count++;
                     }
                 }
+                last = i;
             }
+            
             return count;
         }
     }
