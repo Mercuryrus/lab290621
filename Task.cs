@@ -41,7 +41,7 @@ namespace lab290621
             for (int i = 0; i < arr.Length; i++)
             {
                 for(int j=0; j<arr.Length; j++)
-                if (i>j && arr[i] != 0)
+                if (i>j && arr.Length >= 1)
                 {
                     if ((arr[i] - arr[j]) == 0 || (arr[i] + arr[j]) == 0)
                     {
